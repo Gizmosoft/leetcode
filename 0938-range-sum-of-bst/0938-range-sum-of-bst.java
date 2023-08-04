@@ -14,19 +14,46 @@
  * }
  */
 class Solution {
+//         0ms --> checks only the possible nodes
+    int sum = 0;
+    
+    public void traverse(TreeNode root, int low, int high){
+        if(root == null)
+            return;
+        
+        if(root.val < low){
+            traverse(root.right, low, high);
+        }
+        else if(root.val > high){
+            traverse(root.left, low, high);
+        }
+        else{
+            sum += root.val;
+            traverse(root.left, low, high);
+            traverse(root.right, low, high);
+        }
+    }
+    
     public int rangeSumBST(TreeNode root, int low, int high) {
         if(root == null)
             return 0;
         
-        int sum = 0;
+        traverse(root, low, high);
+        return sum;
         
-        if(root.val >= low && root.val <= high){
-            sum += root.val;
-        }
+//         1ms --> traverses full BST O(n)
+//         if(root == null)
+//             return 0;
         
-        sum += rangeSumBST(root.left, low, high);
-        sum += rangeSumBST(root.right, low, high);
+//         int sum = 0;
         
-        return sum;       
+//         if(root.val >= low && root.val <= high){
+//             sum += root.val;
+//         }
+        
+//         sum += rangeSumBST(root.left, low, high);
+//         sum += rangeSumBST(root.right, low, high);
+        
+//         return sum;       
     }
 }
