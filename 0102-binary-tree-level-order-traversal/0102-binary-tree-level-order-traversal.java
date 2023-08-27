@@ -16,49 +16,71 @@
 class Solution {
     public List<List<Integer>> list = new ArrayList<>();
     
+    
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if(root == null){
-            return new ArrayList<>();
-        }
+//         DFS Call
+        return dfs(root, 0);
         
-        bfs(root);
+//         BFS Function Call
+//         if(root == null){
+//             return new ArrayList<>();
+//         }
+        
+//         bfs(root);
+        
+//         return list;
+        
+    }
+    
+//     DFS Method
+    public List<List<Integer>> dfs(TreeNode root, int level){
+        if(root == null)
+            return list;
+        
+        if(list.size() == level)
+            list.add(new ArrayList<>());
+        
+        list.get(level).add(root.val);
+        // call left and right sub tree recursively
+        dfs(root.left, level+1);
+        dfs(root.right, level+1);
         
         return list;
-        
     }
     
-    private Queue<TreeNode> q;
+//     BFS - Level Order Traversal
+//     private Queue<TreeNode> q;
     
     
-    public void bfs(TreeNode root){
-        q = new LinkedList<>();     // init the queue
-        q.add(root);                // add the root node to queue
-        q.add(null);                // null as a breakpoint to indicate level end
+//     public void bfs(TreeNode root){
+//         q = new LinkedList<>();     // init the queue
+//         q.add(root);                // add the root node to queue
+//         q.add(null);                // null as a breakpoint to indicate level end
         
-        while(!q.isEmpty()){
-            int size = q.size();
-            List<Integer> front = new ArrayList<>();
+//         while(!q.isEmpty()){
+//             int size = q.size();
+//             List<Integer> front = new ArrayList<>();
             
-            for(int i=0; i<size; i++){
-                TreeNode temp = q.poll();
-                if(temp == null)    break;      // ignore the breakpoints
+//             for(int i=0; i<size; i++){
+//                 TreeNode temp = q.poll();
+//                 if(temp == null)    break;      // ignore the breakpoints
                 
-                if(temp.left != null){          // left node
-                    q.add(temp.left);
-                }
+//                 if(temp.left != null){          // left node
+//                     q.add(temp.left);
+//                 }
 
-                if(temp.right != null){         // right node
-                    q.add(temp.right);
-                }
+//                 if(temp.right != null){         // right node
+//                     q.add(temp.right);
+//                 }
                 
-                front.add(temp.val);
+//                 front.add(temp.val);
                 
-            }
+//             }
             
-            list.add(front);
+//             list.add(front);
             
-            if(!q.isEmpty())
-                q.add(null);
-        }
-    }
+//             if(!q.isEmpty())
+//                 q.add(null);
+//         }
+//     }
 }
