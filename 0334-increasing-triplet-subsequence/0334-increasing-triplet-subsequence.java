@@ -10,7 +10,7 @@ class Solution {
             else if(nums[i] <= b){
                 b = nums[i];
             }
-            else if(nums[i] > b){
+            else{
                 return true;
             }
         }
