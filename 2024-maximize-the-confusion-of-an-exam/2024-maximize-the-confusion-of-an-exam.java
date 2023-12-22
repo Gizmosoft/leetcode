@@ -1,4 +1,5 @@
 class Solution {
+    // O(N) solution with O(1) space complexity
     public int maxConsecutiveAnswers(String answerKey, int k) {
         int result = 0, i = 0, j = 0;
         
