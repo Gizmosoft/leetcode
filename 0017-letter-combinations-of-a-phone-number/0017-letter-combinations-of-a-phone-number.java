@@ -16,13 +16,6 @@ class Solution {
         
         List<String> res = new ArrayList<>();
         
-        // if(digits.length() == 1){
-        //     for(char c : map.get(digits)) {
-        //         res.add(String.valueOf(c));
-        //     }
-        //     return res;
-        // }
-        
         int i = 0, n = digits.length();
         
         while(i < n) {
