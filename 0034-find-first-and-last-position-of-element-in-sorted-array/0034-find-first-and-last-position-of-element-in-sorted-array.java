@@ -17,7 +17,7 @@ class Solution {
                 r = mid;
                 ans[0] = l;
                 ans[1] = r;
-                System.out.println("l:" + l + ", r:" + r);
+                // System.out.println("l:" + l + ", r:" + r);
                 while(r < n){
                     if(nums[r] == target) {
                         r++;
