@@ -6,16 +6,19 @@ class Solution {
         
         int start = 0, end = n-1;
         
-        List<Integer> pairs = new ArrayList<>();
+        // List<Integer> pairs = new ArrayList<>();
+        int sum = Integer.MIN_VALUE;
         
         while(start < end) {
-            pairs.add(nums[start] + nums[end]);
+            // pairs.add(nums[start] + nums[end]);
+            sum = Math.max(sum, nums[start] + nums[end]);
             start++;
             end--;
         }
         
-        Collections.sort(pairs);
+        // Collections.sort(pairs);
         
-        return pairs.get(pairs.size()-1);        
+        // return pairs.get(pairs.size()-1); 
+        return sum;
     }
 }
