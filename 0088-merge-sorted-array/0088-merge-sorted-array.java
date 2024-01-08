@@ -1,4 +1,5 @@
 class Solution {
+    // Faster solution: O(m+n)
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m-1, j = n-1;
         
@@ -23,7 +24,7 @@ class Solution {
         }
     }
    
-//     O(nlog(n)) solution
+//     O(m+n log(m+n)) solution
 //     public void merge(int[] nums1, int m, int[] nums2, int n) {
 //         int j = 0;
 //         for(int i=m; i<m+n; i++) {
