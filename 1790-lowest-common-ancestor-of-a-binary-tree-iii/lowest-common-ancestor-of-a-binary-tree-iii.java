@@ -18,7 +18,7 @@ class Solution {
         }
         return a;
 
-        // O(n^2) time and O(n) space solution
+        // O(n+n) time and O(n) space solution
         // Set<Node> path = findPath(p);
         // while (q.parent != null) {
         //     if(path.contains(q)) return q;
