@@ -6,8 +6,6 @@ class Solution {
     }
 
     public void backtrack(int n, int open, int closed, StringBuilder s, List<String> answer) {
-        // if(closed < open || open > n || closed > n) return;
-
         if(open == n && closed == n) {
             answer.add(s.toString());
             return;
