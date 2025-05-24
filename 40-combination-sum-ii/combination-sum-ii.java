@@ -19,10 +19,6 @@ class Solution {
             sum.add(candidates[i]);
             backtrack(candidates, target-candidates[i], i+1, sum, ans);
             sum.remove(sum.size()-1);
-        }
-
-        
-        
-        
+        }  
     }
 }
