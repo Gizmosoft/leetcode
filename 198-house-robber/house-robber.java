@@ -26,16 +26,32 @@ class Solution {
     // }
 
     // DP with Tabulation - Bottom-up approach
+    // public int recursive(int[] dp, int n, int[] nums) {
+    //     dp[0] = nums[0];
+    //     dp[1] = Math.max(nums[0], nums[1]);
+
+    //     for(int i=2; i<n; i++) {
+    //         int pickHouse = nums[i] + dp[i-2];
+    //         int notPickHouse = dp[i-1];
+
+    //         dp[i] = Math.max(pickHouse, notPickHouse);
+    //     }
+    //     return dp[n-1];
+    // }
+
+    // DP with Tabulation and Space Optimization
     public int recursive(int[] dp, int n, int[] nums) {
-        dp[0] = nums[0];
-        dp[1] = Math.max(nums[0], nums[1]);
+        int prev = nums[0];
+        int prev2 = 0;
 
-        for(int i=2; i<n; i++) {
-            int pickHouse = nums[i] + dp[i-2];
-            int notPickHouse = dp[i-1];
+        for(int i=1; i<n; i++) {
+            int pickHouse = nums[i] + prev2;
+            int notPickHouse = prev;
 
-            dp[i] = Math.max(pickHouse, notPickHouse);
+            int curr = Math.max(pickHouse, notPickHouse);
+            prev2 = prev;
+            prev = curr;
         }
-        return dp[n-1];
+        return prev;
     }
 }
