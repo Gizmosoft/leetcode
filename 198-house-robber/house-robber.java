@@ -4,10 +4,10 @@ class Solution {
         if(n == 0) return 0;
         if(n == 1) return nums[0];
 
-        int[] dp = new int[n];
+        // int[] dp = new int[n];   // Only used in DP solution
         // Arrays.fill(dp, -1);     // Not required for tabulation
         // return recursive(dp, n-1, nums);    // Call this for recursion + DP
-        return recursive(dp, n, nums);        
+        return recursive(n, nums);        
     }
 
     // Recursion with DP - Top-Down approach
@@ -40,7 +40,7 @@ class Solution {
     // }
 
     // DP with Tabulation and Space Optimization
-    public int recursive(int[] dp, int n, int[] nums) {
+    public int recursive(int n, int[] nums) {
         int prev = nums[0];
         int prev2 = 0;
 
