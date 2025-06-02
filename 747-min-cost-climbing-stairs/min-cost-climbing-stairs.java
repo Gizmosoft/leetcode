@@ -10,9 +10,11 @@ class Solution {
         // return Math.min(recursiveDP(cost, n-1, dp), recursiveDP(cost, n-2, dp));
 
         // DP with Tabulation
-        int[] dp = new int[n];
-        return dpTabulation(cost, dp, n);
+        // int[] dp = new int[n];
+        // return dpTabulation(cost, dp, n);
 
+        // Tabulation w/ Space Optimization 
+        return tabulationSpaceOpt(cost, n);
     }
 
     // Simple Recursion O(2^n)
@@ -34,14 +36,28 @@ class Solution {
     // }
 
     // Dynamic Programming with Tabulation
-    public int dpTabulation(int[] cost, int[] dp, int n) {
-        dp[0] = cost[0];
-        dp[1] = cost[1];
+    // public int dpTabulation(int[] cost, int[] dp, int n) {
+    //     dp[0] = cost[0];
+    //     dp[1] = cost[1];
+
+    //     for(int i=2; i<n; i++) {
+    //         dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2]);
+    //     }
+
+    //     return Math.min(dp[n-1], dp[n-2]);
+    // }
+
+    // Tabulation with Space Optimization
+    public int tabulationSpaceOpt(int[] cost, int n) {
+        int prev2 = cost[0];
+        int prev = cost[1];
 
         for(int i=2; i<n; i++) {
-            dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2]);
+            int curr = cost[i] + Math.min(prev2, prev);
+            prev2 = prev;
+            prev = curr;
         }
 
-        return Math.min(dp[n-1], dp[n-2]);
+        return Math.min(prev2, prev);
     }
 }
