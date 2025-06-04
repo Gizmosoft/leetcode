@@ -7,7 +7,8 @@ class Solution {
 
         if(n == 0) return 0;
         if(n == 2 || n == 1) return 1;
-        return dpWithTab(n, dp);
+        // return dpWithTab(n, dp);
+        return TabWithSpace(n);
     }
 
     // RECURSION 
@@ -29,14 +30,27 @@ class Solution {
     // }
 
     // DP with Tabulation
-    public int dpWithTab(int n, int[] dp) {
-        dp[0] = 0;
-        dp[1] = 1;
-        dp[2] = 1;
+    // public int dpWithTab(int n, int[] dp) {
+    //     dp[0] = 0;
+    //     dp[1] = 1;
+    //     dp[2] = 1;
+
+    //     for(int i=3; i<=n; i++) {
+    //         dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+    //     }
+    //     return dp[n];
+    // }
+
+    // Tabulation with Space Optimization
+    public int TabWithSpace(int n) {
+        int prev3 = 0, prev2 = 1, prev = 1;
 
         for(int i=3; i<=n; i++) {
-            dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
+            int curr = prev3 + prev2 + prev;
+            prev3 = prev2;
+            prev2 = prev;
+            prev = curr;
         }
-        return dp[n];
+        return prev;
     }
 }
