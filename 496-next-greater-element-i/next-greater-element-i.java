@@ -24,7 +24,6 @@ class Solution {
         // Map<Integer, Integer> cache = new HashMap<>();
         // int n2 = nums2.length;
 
-        // int[] nextBig = new int[n2];
         // for(int i=0; i<n2; i++) {
         //     cache.put(nums2[i], -1);
         //     for(int j=i+1; j<n2; j++) {
